@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color.xml" value="0.2" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_a4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_b4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_c4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_c5.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_d4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_e4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_f4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/drawable/button_background_color_g4.xml" value="0.1" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/control_layout.xml" value="0.178125" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/fragment_fifth.xml" value="0.19972826086956522" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/fragment_first.xml" value="0.4" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/fragment_fourth.xml" value="0.264" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/fragment_second.xml" value="0.264" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/fragment_third.xml" value="0.2791666666666667" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/layout/select_device_layout.xml" value="0.178125" />
+        <entry key="..\:/Users/rmw/AndroidStudioProjects/LetsPlayPiano/app/src/main/res/xml/buttoncolorc4.xml" value="0.1578125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
