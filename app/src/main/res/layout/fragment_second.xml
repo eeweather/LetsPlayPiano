@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/F4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_f4"
         android:text="@string/f4"
@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/A4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_a4"
         android:text="@string/a4"
@@ -33,7 +33,7 @@
     <Button
         android:id="@+id/C5"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_c5"
         android:text="@string/c5"
@@ -44,7 +44,7 @@
     <Button
         android:id="@+id/E4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_e4"
         android:text="@string/e4"
@@ -55,7 +55,7 @@
     <Button
         android:id="@+id/D4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_d4"
         android:text="@string/d4"
@@ -66,7 +66,7 @@
     <Button
         android:id="@+id/B4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_b4"
         android:text="@string/b4"
@@ -77,7 +77,7 @@
     <Button
         android:id="@+id/C4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@drawable/button_background_color_c4"
@@ -90,7 +90,7 @@
     <Button
         android:id="@+id/G4"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_margin="15dp"
         android:backgroundTint="@drawable/button_background_color_g4"
         android:text="@string/g4"

@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import ew22.psu.ece558.com.letsplaypiano.databinding.FragmentFifthBinding
 
+/**
+ * You Win fragment
+ * buttons to take you to game mode or main menu**/
+
 class fifthFragment : Fragment() {
     private val TAG: String = fifthFragment::class.java.simpleName
 

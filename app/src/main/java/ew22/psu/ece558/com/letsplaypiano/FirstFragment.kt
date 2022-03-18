@@ -26,6 +26,12 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
 
+/**
+ * Main menu fragment
+ * has buttons to connect bluetooth, go to game mode go to free play
+ * handles bluetooth connection
+ * has bluetooth message writing helper function**/
+
 private const val TAG = "MY_APP_DEBUG_TAG"
 
 // Defines several constants used when transmitting messages between the
@@ -35,6 +41,8 @@ const val MESSAGE_WRITE: Int = 1
 const val MESSAGE_TOAST: Int = 2
 const val REQUEST_ENABLE_BT: Int = 1
 
+
+//initalize bluetooth values
 var mySocket:BluetoothSocket? = null
 val myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 var myDevice: BluetoothDevice? = null
@@ -59,10 +67,6 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
-
 
 
     fun getBlueToothConnection(){
@@ -93,24 +97,16 @@ class FirstFragment : Fragment() {
 
 
 
-
         //query paired devices
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.BLUETOOTH_CONNECT
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             Toast.makeText(context, "Bluetooth Permission Error", Toast.LENGTH_SHORT).show()
-
         }
         val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter?.bondedDevices
+        //query device list if there is no socket and ESP32test is available, make socket
         pairedDevices?.forEach { device ->
             if(mySocket == null && device.name == "ESP32test"){
                 try {
@@ -129,9 +125,9 @@ class FirstFragment : Fragment() {
         }
     }
 
+        //button listeners
 
         binding.freeplaybtn.setOnClickListener {
-
 
             findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
@@ -149,6 +145,7 @@ class FirstFragment : Fragment() {
         Toast.makeText(context, "Result Code: ${result.resultCode.toString()}", Toast.LENGTH_SHORT).show()
     }
 
+    //permissions function
     private val requestMultiplePermissions =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             permissions.entries.forEach {
@@ -165,19 +162,13 @@ class FirstFragment : Fragment() {
 
 }
 
+//global write to bluetooth function to use in multiple fragments
 fun writeToBluetooth(writeString:String, context: Context){
     if (ActivityCompat.checkSelfPermission(
             context,
             Manifest.permission.BLUETOOTH_CONNECT
         ) != PackageManager.PERMISSION_GRANTED
     ) {
-        // TODO: Consider calling
-        //    ActivityCompat#requestPermissions
-        // here to request the missing permissions, and then overriding
-        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-        //                                          int[] grantResults)
-        // to handle the case where the user grants the permission. See the documentation
-        // for ActivityCompat#requestPermissions for more details.
         Toast.makeText(context, "Bluetooth Permission Error", Toast.LENGTH_SHORT).show()
         return
     }

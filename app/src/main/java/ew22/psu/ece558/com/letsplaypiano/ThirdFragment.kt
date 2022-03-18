@@ -1,5 +1,6 @@
 package ew22.psu.ece558.com.letsplaypiano
 
+import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
@@ -16,8 +17,14 @@ import androidx.navigation.fragment.findNavController
 import ew22.psu.ece558.com.letsplaypiano.databinding.FragmentThirdBinding
 import java.util.ArrayList
 
+
+/**
+ * Game mode fragment
+ * same as freeplay but with a start button and game logic
+ * has helper functions for game logic, plays game song, generating random song**/
+
 val twinkle = arrayOf("C4","C4","G4","G4")
-var song = twinkle
+var song = randomSong(10)
 var round = 0
 var userIndex = 0
 var isPlayback = false
@@ -42,13 +49,7 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //game logic
-        // computer play array[0]
-        //user press array [0] check
-        // app play 0 1
-        // user press 0 check
-        //user press 1 check
-
+    //sound pool set up same as second fragment
         if (Build.VERSION.SDK_INT
             >= Build.VERSION_CODES.LOLLIPOP
         ) {
@@ -84,7 +85,7 @@ class ThirdFragment : Fragment() {
         val f4 = soundPool.load(context, R.raw.f4, 1 )
         val g4 = soundPool.load(context, R.raw.g4, 1 )
 
-
+        //start button start game by moving round to 1
         binding.startbutton.setOnClickListener {
             round = 1
             userIndex = 0
@@ -93,43 +94,83 @@ class ThirdFragment : Fragment() {
 
         }
 
-
+        //button listeners same as in fragment two but with gamelogic function
         binding.gA4.setOnClickListener {
+            binding.gA4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,a4, "a", requireContext())
+            Handler().postDelayed({
+                binding.gA4.setBackgroundColor(0x4CAF50)
+            }, 500)
             gameLogic("A4")
 
         }
         binding.gB4.setOnClickListener {
+            binding.gB4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,b4, "b",requireContext())
+            Handler().postDelayed({
+                binding.gB4.setBackgroundColor(0x009688)
+            }, 500)
             gameLogic("B4")
 
         }
         binding.gC4.setOnClickListener {
+            binding.gC4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,c4, "c",requireContext())
+            Handler().postDelayed({
+                binding.gC4.setBackgroundColor(0xFF5722)
+            }, 500)
             gameLogic("C4")
 
         }
         binding.gD4.setOnClickListener {
+            binding.gD4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,d4, "d",requireContext())
+            Handler().postDelayed({
+                binding.gD4.setBackgroundColor(0xFF9800)
+            }, 500)
 
            gameLogic("D4")
 
         }
         binding.gE4.setOnClickListener {
+            binding.gE4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,e4, "e",requireContext())
+            Handler().postDelayed({
+                binding.gE4.setBackgroundColor(0xFFC107)
+            }, 500)
             gameLogic("E4")
         }
         binding.gF4.setOnClickListener {
+            binding.gF4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,f4, "f",requireContext())
+            Handler().postDelayed({
+                binding.gF4.setBackgroundColor(0xFFEB3B)
+            }, 500)
             gameLogic("F4")
         }
         binding.gG4.setOnClickListener {
+            binding.gG4.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,g4, "g",requireContext())
+            Handler().postDelayed({
+                binding.gG4.setBackgroundColor(0xCDDC39)
+            }, 500)
             gameLogic("G4")
 
         }
         binding.gC5.setOnClickListener {
+            binding.gC5.setBackgroundColor(Color.WHITE)
+
             pianoKeyPress(soundPool,c5, "h",requireContext())
+            Handler().postDelayed({
+                binding.gC5.setBackgroundColor(0x00BCD4)
+            }, 500)
             gameLogic("C5")
 
         }
@@ -139,21 +180,7 @@ class ThirdFragment : Fragment() {
 
     }
 
-    fun gameHandler(round: Int){
-        appGameHandler(round)
-        userGameHandler(round)
-    }
-    fun userGameHandler(round: Int){
-        for(i in 0..round){
-            Log.i("user game handler :", i.toString())
-            Log.i("user game handler:", song[i])
-
-
-            if (song[i] != userNotes[i]){
-                Toast.makeText(context, "END GAME", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+    //plays song from the app, intakes how many notes to press and then presses those keys
     fun appGameHandler(round: Int){
         for (i in 0..(round - 1)){
             var note = song[i]
@@ -181,45 +208,8 @@ class ThirdFragment : Fragment() {
         }
     }
 
-    fun gameLogicOld(key: String){
-        if(isPlayback == false){
-            //userArray = append(userArray, "D4")
-            Log.i("index:", round.toString())
-            Log.i("user index:", userIndex.toString())
-            if(userIndex<= round){
-                Log.i("twinkle", song[userIndex])
 
-                userNotes = append(userNotes, key)
-                Log.i("in <=", userNotes[userIndex])
-
-                if(userNotes[userIndex]== song[userIndex]){
-                    Log.i("in ==", userNotes[userIndex])
-
-                    userIndex++
-                }
-                else{
-                    Toast.makeText(context, "YOU LOSE", Toast.LENGTH_SHORT).show()
-                }
-            }
-            if(userIndex> round){
-                Log.i("index:", round.toString())
-                Log.i("user index:", userIndex.toString())
-                Log.i("in <=", "In else")
-
-                userNotes = emptyArray()
-                userIndex= 0
-                round++
-
-                appGameHandler(round)
-
-
-            }
-        }
-
-        isPlayback=false
-    }
-
-
+    // manages game logic, checks if game over, win/lose, plays song for next round and starts next round
     fun gameLogic(currentNote: String){
         if(isPlayback == true) {
             isPlayback = false
@@ -235,7 +225,6 @@ class ThirdFragment : Fragment() {
             userNotes = emptyArray()
             round = 0
             findNavController().navigate(R.id.action_thirdFragment_to_fourthFragment)
-
             return
         }
 
@@ -252,7 +241,6 @@ class ThirdFragment : Fragment() {
             //appGameHandler(round)
             round = 0
             findNavController().navigate(R.id.action_thirdFragment_to_fifthFragment)
-
             return
         }
 
@@ -263,6 +251,7 @@ class ThirdFragment : Fragment() {
 
 }
 
+//generates a random song of the provided keys at an input length
 fun randomSong(length: Int): Array<String>{
     var newSong = Array(length){_ -> ""}
     var notes = arrayOf("C4","D4","E4","F4","G4","A4","B4","C5")
@@ -278,6 +267,7 @@ fun randomSong(length: Int): Array<String>{
     return newSong
 }
 
+//helper append funtion
 fun append(arr: Array<String>, element: String): Array<String> {
     val list: MutableList<String> = arr.toMutableList()
     list.add(element)

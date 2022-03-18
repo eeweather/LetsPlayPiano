@@ -9,7 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import ew22.psu.ece558.com.letsplaypiano.databinding.ActivityMainBinding
-
+/**
+ *  Android memory game that plays an increasing series of sounds and lights, and prompts the user
+ *  to input the same sequence. The game communicates with an ESP32 over Bluetooth which drives
+ *  an array of NeoPixel LEDs that play short light shows based on the sound being played in order
+ *  to provide a visual and audio cue to the player.
+ *  By Emily Weatherford and Seth Rohrbach
+ **/
 
 class MainActivity : AppCompatActivity() {
 

@@ -14,7 +14,9 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import ew22.psu.ece558.com.letsplaypiano.databinding.FragmentFourthBinding
 
-
+/**
+ * You lose fragment
+ * buttons to take you to game mode or main menu**/
 class FourthFragment : Fragment() {
     private val TAG: String = FourthFragment::class.java.simpleName
 

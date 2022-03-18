@@ -23,8 +23,9 @@
 
     <Button
         android:id="@+id/playAgainBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_margin="15dp"
         android:layout_marginTop="85dp"
         android:text="Play Again?"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +35,9 @@
 
     <Button
         android:id="@+id/mainMenuBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_margin="15dp"
         android:layout_marginTop="12dp"
         android:text="Main Menu"
         app:layout_constraintEnd_toEndOf="parent"
